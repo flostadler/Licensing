@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Licensing.Commons", "Licensing.Commons\Licensing.Commons.csproj", "{ABD5B609-8794-4ADE-8850-3D00EE0DC55C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Licensing.Cli", "Licensing.Cli\Licensing.Cli.csproj", "{6CBA9112-F7E6-433E-95E3-A7EA9BC82B68}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ABD5B609-8794-4ADE-8850-3D00EE0DC55C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABD5B609-8794-4ADE-8850-3D00EE0DC55C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABD5B609-8794-4ADE-8850-3D00EE0DC55C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABD5B609-8794-4ADE-8850-3D00EE0DC55C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CBA9112-F7E6-433E-95E3-A7EA9BC82B68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CBA9112-F7E6-433E-95E3-A7EA9BC82B68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CBA9112-F7E6-433E-95E3-A7EA9BC82B68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CBA9112-F7E6-433E-95E3-A7EA9BC82B68}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5A756E77-6331-4804-8BA4-DD1A0FB34FF5}
+	EndGlobalSection
+EndGlobal
