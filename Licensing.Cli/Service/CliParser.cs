@@ -38,7 +38,7 @@ namespace Licensing.Cli.Service
                 {
                     if (!Guid.TryParse(s, out var guid))
                     {
-                        Console.WriteLine($"\"{s}\" is not a valid Id\n" +
+                        Console.WriteLine($"\"{s}\" is not a valid Id!\n" +
                                           "Please use either of these formats for Ids:\n" +
                                           $"\t{Guid.Empty:N}\n" +
                                           $"\t{Guid.Empty:B}\n" +
@@ -59,8 +59,8 @@ namespace Licensing.Cli.Service
                     var dateParser = new DateParser();
                     if (!dateParser.Parse(exp, out var date))
                     {
-                        Console.WriteLine($"\"{exp}\" is not a valid Date\n" +
-                                          "Please use either of these formats for Dates\n" +
+                        Console.WriteLine($"\"{exp}\" is not a valid Date!\n" +
+                                          "Please use either of these formats for Dates:\n" +
                                           $"{dateParser.Examples}\n");
                         
                         throw new Exception();

@@ -30,7 +30,7 @@ namespace Licensing.Cli.Utility
                 var date = DateTime.Now;
 
                 var builder = new StringBuilder();
-                Formats.ToList().ForEach(x => builder.Append($"{date.ToString(x)}\n"));
+                Formats.ToList().ForEach(x => builder.Append($"\t- {date.ToString(x)}\n"));
 
                 return builder.ToString();
             }
