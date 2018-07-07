@@ -7,6 +7,7 @@ using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Xml;
 using Licensing.Commons.Data;
+using Licensing.Commons.Extension;
 
 namespace Licensing.Commons.Utility
 {
@@ -36,7 +37,7 @@ namespace Licensing.Commons.Utility
         {
             using (var rsa = new RSACryptoServiceProvider())
             {
-                rsa.FromXmlString(_privateKey);
+                rsa.FromXmlStringCustom(_privateKey);
                 var doc = new XmlDocument();
                 var license = doc.CreateElement("floating-license");
                 doc.AppendChild(license);
@@ -90,7 +91,7 @@ namespace Licensing.Commons.Utility
         {
             using (var rsa = new RSACryptoServiceProvider())
             {
-                rsa.FromXmlString(_privateKey);
+                rsa.FromXmlStringCustom(_privateKey);
                 var doc = CreateDocument(id, name, expirationDate, attributes, licenseType);
 
                 var signature = GetXmlDigitalSignature(doc, rsa);

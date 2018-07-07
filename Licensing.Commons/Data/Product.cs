@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Security.Cryptography;
+using Licensing.Commons.Extension;
 
 namespace Licensing.Commons.Data
 {
@@ -13,8 +14,8 @@ namespace Licensing.Commons.Data
                 var key = RSA.Create();
                 Id = Guid.NewGuid();
                 IssuedLicenses = new ObservableCollection<License>();
-                PublicKey = key.ToXmlString(false);
-                PrivateKey = key.ToXmlString(true);
+                PublicKey = key.ToXmlStringCustom(false);
+                PrivateKey = key.ToXmlStringCustom(true);
             }
 
             [DataMember]
@@ -24,12 +25,12 @@ namespace Licensing.Commons.Data
             public string Name { get; set; }
 
             [DataMember]
-            public string PrivateKey { get; private set; }
+            public string PrivateKey { get; set; }
 
             [DataMember]
-            public string PublicKey { get; private set; }
+            public string PublicKey { get; set; }
 
             [DataMember]
-            public ObservableCollection<License> IssuedLicenses { get; private set; }
+            public ObservableCollection<License> IssuedLicenses { get; set; }
     }
 }

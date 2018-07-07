@@ -1,14 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Library</OutputType>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <ApplicationIcon />
     <StartupObject />
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="System.Security.Cryptography.Xml" Version="4.5.0" />
   </ItemGroup>
-
 </Project>
