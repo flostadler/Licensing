@@ -6,8 +6,7 @@ script:
 - dotnet build ./Licensing.sln
 deploy:
   provider: releases
-  api_key:
-    secure: w5XotqVU4cI+wgSpwJ1Ck+/3uGsY5kfxhtSvYPfjZghwIR29fTm3SBuwZlCxuciL1T0yuliSHrp6Ot8sQ+rL1wAI/o4XLkRHJlgynBG10q06og34+BVMGd7681Xiac4MvKDFcbrA5Mf6BLrMbmoTDcIJq5SDRub3ru8Jxv1bccB3A3ZanAyfjBqxVZNlmbkED+xWw8PQstytgAeb7YOQjfSOm4STDJ3OKYPFrfGGPfpBX40mowwgGm2P29obmJtuKeJ+e5CPp1qnsbwNl6bFMRQbhgsyxKy5ZbaZ9IIHxIyL1XxiqwG/jISsYnJ57OlthGI0D4z8wcBDPvvBx344TYV28+kx6A0c4EnTayShEwTEdMsT3A5RpMBBBStkLsZZhMIuU8fP5ICDhFDtmLTWlTRKrq45S2TTba7c8hvw8Gx+dMCneJ5OZiYi6APtLZHlRLUJqn4bE2Tj09/CT1NePDrLukQAXozNfdvd2R7QO7LOXG9xpemIAZbD65MluxcmGqSWisatdc5dOu/1r6aOtuOfd1TnPa+Vp0P5jKBLWeVmvw2y7LYxFAsSXT8A239vhVbytlOUrE7Knt1O2BDCGqATsKZsoTQnznKqa8vH2dgqJj1MKw7dOPeb69hMuOqYppR4Zzr3xyOuBISHdcf04AylDyjZ92dOVAyoITPTm2Q=
+  api_key: $GITHUB_OAUTH_TOKEN
   file: 
     - "/Licensing.Commons/bin/Release/netcoreapp2.0/Licensing.Commons.dll"
     - "/Licensing.Cli/bin/Release/netcoreapp2.0/Licensing.Cli.dll"
