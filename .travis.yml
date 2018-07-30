@@ -7,6 +7,7 @@ script:
 deploy:
   provider: releases
   api_key: "$GITHUB_OAUTH_TOKEN"
+  skip_cleanup: true
   file: 
     - "/Licensing.Commons/bin/Release/netcoreapp2.0/Licensing.Commons.dll"
     - "/Licensing.Cli/bin/Release/netcoreapp2.0/Licensing.Cli.dll"
