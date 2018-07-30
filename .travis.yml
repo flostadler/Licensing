@@ -4,13 +4,17 @@ dotnet: 2.0.0
 script:
 - dotnet restore
 - dotnet build ./Licensing.sln
+- zip ./release.zip ./Licensing.Commons/bin/Debug/netcoreapp2.0/Licensing.Commons.dll ./Licensing.Cli/bin/Debug/netcoreapp2.0/Licensing.Cli.dll
+addons:
+  apt:
+    packages:
+    - zip
 deploy:
   provider: releases
   api_key: "$GITHUB_OAUTH_TOKEN"
   skip_cleanup: true
   file: 
-    - "./Licensing.Commons/bin/Debug/netcoreapp2.0/Licensing.Commons.dll"
-    - "./Licensing.Cli/bin/Debug/netcoreapp2.0/Licensing.Cli.dll"
+    - "./release.zip"
   on:
     repo: flostadler/Licensing
     tags: true
