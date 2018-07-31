@@ -45,13 +45,12 @@ namespace Licensing.Cli.Service
                                           $"\t{Guid.Empty:D}\n" +
                                           $"\t{Guid.Empty:P}\n" +
                                           $"\t{Guid.Empty:X}\n");
-                        
+
                         throw new Exception();
                     }
 
                     _license.ID = guid;
-                })
-                .Required();
+                });
 
             _parser.Setup<string>('e', "exp")
                 .Callback(exp =>
