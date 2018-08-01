@@ -5,7 +5,7 @@ script:
 - dotnet restore
 - dotnet build -c Release ./Licensing.sln
 - dotnet pack -c Release ./Licensing.Commons/Licensing.Commons.csproj
-- zip -j ./release.zip ./Licensing.Commons/bin/Release/netcoreapp2.0/Licensing.Commons.dll ./Licensing.Cli/bin/Release/netcoreapp2.0/Licensing.Cli.dll ./Licensing.Commons/bin/Release/*.nupkg
+- zip -j ./release.zip ./Licensing.Commons/bin/Release/netstandard2.0/Licensing.Commons.dll ./Licensing.Cli/bin/Release/netcoreapp2.0/Licensing.Cli.dll ./Licensing.Commons/bin/Release/*.nupkg
 addons:
   apt:
     packages:
