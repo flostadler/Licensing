@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Runtime.CompilerServices;
 using Fclp;
 using Licensing.Cli.Utility;
@@ -11,6 +12,8 @@ namespace Licensing.Cli.Service
         private readonly FluentCommandLineParser _parser;
         private readonly Product _product;
         private readonly License _license;
+        private bool _keySet;
+        private string _keyPath = null;
         
         public CliParser()
         {
@@ -26,8 +29,14 @@ namespace Licensing.Cli.Service
                 .Callback(text => Console.WriteLine(text));
 
             _parser.Setup<string>('k', "key")
-                .Callback(privatKey => _product.PrivateKey = privatKey)
-                .Required();
+                .Callback(privatKey =>
+                {
+                    _product.PrivateKey = privatKey;
+                    _keySet = true;
+                });
+
+            _parser.Setup<string>('p', "key-path")
+                .Callback(path => _keyPath = path);
 
             _parser.Setup<string>('n', "name")
                 .Callback(name => _license.OwnerName = name)
@@ -89,6 +98,37 @@ namespace Licensing.Cli.Service
                 }
                 else
                 {
+                    if (!_keySet && String.IsNullOrEmpty(_keyPath))
+                    {
+                        Console.WriteLine("No key provided, please add a key!");
+                        return false;
+                    }
+                    if (_keySet && !String.IsNullOrEmpty(_keyPath))
+                    {
+                        Console.WriteLine("Key and path to key was set, please provide only one of these options!");
+                        return false;
+                    }
+                    if (!_keySet)
+                    {
+                        if (!File.Exists(_keyPath))
+                        {
+                            Console.WriteLine("Key path doesn't point to an existing file");
+                            return false;
+                        }
+
+                        try
+                        {
+                            _product.PrivateKey = File.ReadAllText(_keyPath);
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("An error happened while reading the key file\n" +
+                                              "Detailed error message:\n" +
+                                              e);
+                            return false;
+                        }
+                    }
+                    
                     product = _product;
                     license = _license;
                     return true;
@@ -96,6 +136,9 @@ namespace Licensing.Cli.Service
             }
             catch (Exception e)
             {
+                Console.WriteLine("An unknown error happed!\n" +
+                                  "Detailed error message:\n" +
+                                  e);
                 return false;
             }
         }
